@@ -7,11 +7,30 @@
 //
 
 import UIKit
-import RealmSwift
+
 class TableViewController: UITableViewController {
-    let realm =  try! Realm()
+ //   let realm =  try! Realm()
     var arr2 = Udef.share.al()
     
+    @IBAction func but(_ sender: Any) {
+        let alert = UIAlertController(title: "изменить", message: "Измените эту задачу", preferredStyle: .alert)
+               let save = UIAlertAction(title: "Сохранить", style: .default) { action in
+                   let tf = alert.textFields?.first
+                   if let new = tf?.text{
+                       //self.tasks.insert(new, at: 0)
+                    guard let indexPath = self.tableView.indexPathForSelectedRow else { return }
+
+                    Udef.share.edit(stri:new, ind: indexPath.row)
+                       self.tableView.reloadData()
+                   }
+               }
+               alert.addTextField {_ in}
+               let cancel = UIAlertAction(title: "Отмена", style: .default) { _ in
+               }
+               alert.addAction(save)
+               alert.addAction(cancel)
+               present(alert, animated: true)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         print("arr2")
@@ -45,15 +64,13 @@ print(arr2)
     }
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
-            let allTodo = realm.objects(toDo.self)
-                       try! realm.write{
-                        realm.delete(allTodo[indexPath.row])
-                      }
+            Udef.share.delet(indo: indexPath.row)
             arr2.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .top)
           
         }
     }
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -90,14 +107,19 @@ print(arr2)
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "seg"{
+              guard let indexPath = tableView.indexPathForSelectedRow else { return }
+            let vc = segue.destination as! ViewControllerEdit
+            vc.str = arr2[indexPath.row]
+        }
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
-    */
-
+   
+*/
 }

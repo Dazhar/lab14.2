@@ -15,6 +15,7 @@
 		3D5C3A6E263829FE003BD40C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D5C3A6C263829FE003BD40C /* LaunchScreen.storyboard */; };
 		3D5C3A7626383267003BD40C /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5C3A7526383267003BD40C /* File.swift */; };
 		3D5C3A79263FFD3E003BD40C /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3D5C3A77263FFD3E003BD40C /* DataModel.xcdatamodeld */; };
+		3D695CD8270F860D00DE808B /* ViewControllerEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D695CD7270F860D00DE808B /* ViewControllerEdit.swift */; };
 		3DC2A2BD2705B389000041EC /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC2A2BC2705B389000041EC /* ViewController2.swift */; };
 		3DC2A2BF2707AEFE000041EC /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC2A2BE2707AEFE000041EC /* TableViewController.swift */; };
 		3DC2A2C12707AF4F000041EC /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC2A2C02707AF4F000041EC /* TableViewCell.swift */; };
@@ -34,6 +35,7 @@
 		3D5C3A6F263829FE003BD40C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D5C3A7526383267003BD40C /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		3D5C3A78263FFD3E003BD40C /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		3D695CD7270F860D00DE808B /* ViewControllerEdit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerEdit.swift; sourceTree = "<group>"; };
 		3DC2A2BC2705B389000041EC /* ViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
 		3DC2A2BE2707AEFE000041EC /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		3DC2A2C02707AF4F000041EC /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				3DC2A2C227087915000041EC /* TableViewController2.swift */,
 				3DC2A2C02707AF4F000041EC /* TableViewCell.swift */,
 				3DC2A2BE2707AEFE000041EC /* TableViewController.swift */,
+				3D695CD7270F860D00DE808B /* ViewControllerEdit.swift */,
 				3DC2A2BC2705B389000041EC /* ViewController2.swift */,
 				3D5C3A7526383267003BD40C /* File.swift */,
 				3D5C3A6A263829FE003BD40C /* Assets.xcassets */,
@@ -232,6 +235,7 @@
 				3D5C3A62263829ED003BD40C /* AppDelegate.swift in Sources */,
 				3D5C3A64263829ED003BD40C /* SceneDelegate.swift in Sources */,
 				3DC2A2BD2705B389000041EC /* ViewController2.swift in Sources */,
+				3D695CD8270F860D00DE808B /* ViewControllerEdit.swift in Sources */,
 				3DC2A2C327087915000041EC /* TableViewController2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

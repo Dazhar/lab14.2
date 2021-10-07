@@ -33,11 +33,22 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4XW-Oi-Edk">
+                                            <rect key="frame" x="333" y="29.5" width="46" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="46" id="A5a-rF-w5v"/>
+                                                <constraint firstAttribute="height" constant="30" id="Uoe-ue-RWo"/>
+                                            </constraints>
+                                            <state key="normal" title="Edit"/>
+                                        </button>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="4XW-Oi-Edk" firstAttribute="centerY" secondItem="OVa-uO-iEh" secondAttribute="centerY" id="B7r-um-qln"/>
                                         <constraint firstItem="br2-sT-n8m" firstAttribute="top" secondItem="OVa-uO-iEh" secondAttribute="topMargin" constant="14.5" id="BLp-sP-fG7"/>
+                                        <constraint firstItem="4XW-Oi-Edk" firstAttribute="leading" secondItem="OVa-uO-iEh" secondAttribute="leadingMargin" constant="313" id="GS5-Zw-sjJ"/>
                                         <constraint firstItem="br2-sT-n8m" firstAttribute="leading" secondItem="OVa-uO-iEh" secondAttribute="leadingMargin" id="XnL-oo-mNw"/>
                                         <constraint firstItem="br2-sT-n8m" firstAttribute="centerY" secondItem="OVa-uO-iEh" secondAttribute="centerY" id="bLw-kG-mLh"/>
+                                        <constraint firstItem="4XW-Oi-Edk" firstAttribute="top" secondItem="OVa-uO-iEh" secondAttribute="topMargin" constant="18.5" id="uxp-nF-zoB"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -61,6 +72,45 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lSF-fi-heC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1763.7681159420292" y="-524.33035714285711"/>
+        </scene>
+        <!--View Controller Edit-->
+        <scene sceneID="KeN-Ll-o90">
+            <objects>
+                <viewController id="fQ0-GP-l80" customClass="ViewControllerEdit" customModule="lab14" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KCg-xR-Bs1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Jd-FN-53z">
+                                <rect key="frame" x="12" y="155" width="390" height="53"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="44"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nkT-Xh-MxP">
+                                <rect key="frame" x="171.5" y="433" width="71" height="30"/>
+                                <state key="normal" title="Изменить"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="2Jd-FN-53z" firstAttribute="leading" secondItem="Wi6-7V-wzr" secondAttribute="leading" constant="12" id="2m0-80-ktA"/>
+                            <constraint firstItem="nkT-Xh-MxP" firstAttribute="centerY" secondItem="KCg-xR-Bs1" secondAttribute="centerY" id="EGM-F5-GMM"/>
+                            <constraint firstItem="nkT-Xh-MxP" firstAttribute="centerX" secondItem="KCg-xR-Bs1" secondAttribute="centerX" id="F3P-9y-Kfj"/>
+                            <constraint firstItem="Wi6-7V-wzr" firstAttribute="trailing" secondItem="2Jd-FN-53z" secondAttribute="trailing" constant="12" id="l61-a6-1iP"/>
+                            <constraint firstItem="2Jd-FN-53z" firstAttribute="top" secondItem="Wi6-7V-wzr" secondAttribute="top" constant="111" id="oU7-9O-EQU"/>
+                            <constraint firstItem="2Jd-FN-53z" firstAttribute="centerX" secondItem="KCg-xR-Bs1" secondAttribute="centerX" id="u1Z-qJ-2h9"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Wi6-7V-wzr"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="sSf-fB-Ph2"/>
+                    <connections>
+                        <outlet property="EditLabel" destination="2Jd-FN-53z" id="Yug-OR-qrV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f2D-EA-A2E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2656.521739130435" y="-524.33035714285711"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -186,10 +236,20 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wt1-78-wnD">
+                                            <rect key="frame" x="348" y="22" width="30" height="30"/>
+                                            <state key="normal" title="Edit"/>
+                                            <connections>
+                                                <action selector="but:" destination="BFf-XY-Lzr" eventType="touchUpInside" id="c9A-Nx-DzU"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="wt1-78-wnD" firstAttribute="leading" secondItem="Urb-9A-KNL" secondAttribute="trailing" constant="66" id="90c-rr-Rgt"/>
                                         <constraint firstItem="Urb-9A-KNL" firstAttribute="centerY" secondItem="ZoJ-ad-807" secondAttribute="centerY" id="B7d-f3-Sti"/>
+                                        <constraint firstItem="wt1-78-wnD" firstAttribute="centerY" secondItem="ZoJ-ad-807" secondAttribute="centerY" id="Fra-55-32o"/>
                                         <constraint firstItem="Urb-9A-KNL" firstAttribute="leading" secondItem="ZoJ-ad-807" secondAttribute="leadingMargin" id="Vx4-rt-gKh"/>
+                                        <constraint firstItem="wt1-78-wnD" firstAttribute="top" secondItem="ZoJ-ad-807" secondAttribute="topMargin" constant="11" id="ggc-EZ-3VW"/>
                                         <constraint firstItem="Urb-9A-KNL" firstAttribute="top" secondItem="ZoJ-ad-807" secondAttribute="topMargin" constant="8.5" id="vIi-nN-MNL"/>
                                     </constraints>
                                 </tableViewCellContentView>

@@ -36,12 +36,17 @@ class Udef{
     return arr
     }
     
-    
-    func delet(){
+    func edit(stri:String,ind:Int){
+         let allTodo = realm.objects(toDo.self)
+        let SelTodo = allTodo[ind]
+        SelTodo.name = stri
+    }
+    func delet(indo:Int){
            let allTodo = realm.objects(toDo.self)
             try! realm.write{
-                realm.delete(allTodo[2])
+                realm.delete(allTodo[indo])
            }
+       
            }
     private let kUserName = "default.kUserName"
     private let kUserName2 = "default.kUserName2"
