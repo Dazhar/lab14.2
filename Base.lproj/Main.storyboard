@@ -91,6 +91,10 @@
                                 <rect key="frame" x="171.5" y="433" width="71" height="30"/>
                                 <state key="normal" title="Изменить"/>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SFa-EH-rqw">
+                                <rect key="frame" x="239" y="735" width="44" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -240,7 +244,7 @@
                                             <rect key="frame" x="348" y="22" width="30" height="30"/>
                                             <state key="normal" title="Edit"/>
                                             <connections>
-                                                <action selector="but:" destination="BFf-XY-Lzr" eventType="touchUpInside" id="c9A-Nx-DzU"/>
+                                                <action selector="but:" destination="BFf-XY-Lzr" eventType="touchUpInside" id="ucC-Se-HjD"/>
                                             </connections>
                                         </button>
                                     </subviews>

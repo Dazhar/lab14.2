@@ -9,7 +9,9 @@
 import UIKit
 
 class TableViewCell: UITableViewCell {
+    
 
+    
     @IBOutlet var Label: UILabel!
     @IBOutlet var label2: UILabel!
     override func awakeFromNib() {

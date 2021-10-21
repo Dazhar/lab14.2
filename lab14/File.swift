@@ -11,31 +11,41 @@ import RealmSwift
 
 class toDo: Object {
     @objc dynamic var name = ""
+    @objc dynamic var isCompl:Bool = false
 }
 
 class Udef{
     var nam = ""
-   
+   var arr:[[String:Any]] = [["Name":String(),"IsCom":Bool()]]
     static let share = Udef()
     private let realm =  try! Realm()
     func test(){
         let tDo = toDo()
         tDo.name = nam
+        tDo.isCompl = false
         try! realm.write{
             realm.add(tDo)
         }
     
     }
-    func al()->[String]{
-     var arr:[String] = []
+    func al()->[[String:Any]]{
+        
         let allTodo = realm.objects(toDo.self)
                for i in allTodo{
                    print(i)
-                arr.append(i.name)
+                arr.append(["Name":i.name,"IsCom":i.isCompl])
                }
     return arr
     }
-    
+    func changeCheck(Item:Int){
+    //   arr[Item]["IsCom"] = !(arr[Item]["IsCom"] as! Bool)
+        let allTodo2 = realm.objects(toDo.self)
+        print("morgen")
+        print(allTodo2[Item]["IsCom"])
+      // allTodo2[Item]["IsCom"] = !(allTodo2[Item]["IsCom"] as! Bool)
+   
+        
+    }
     func edit(stri:String,ind:Int){
          let allTodo = realm.objects(toDo.self)
         let SelTodo = allTodo[ind]

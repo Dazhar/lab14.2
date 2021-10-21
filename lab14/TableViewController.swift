@@ -18,9 +18,10 @@ class TableViewController: UITableViewController {
                    let tf = alert.textFields?.first
                    if let new = tf?.text{
                        //self.tasks.insert(new, at: 0)
-                    guard let indexPath = self.tableView.indexPathForSelectedRow else { return }
+                    let buttonPosition:CGPoint = (sender as AnyObject).convert(CGPoint.init(x: 5.0, y: 5.0), to:self.tableView)
+                    let indexPath = self.tableView.indexPathForRow(at: buttonPosition)
 
-                    Udef.share.edit(stri:new, ind: indexPath.row)
+                    Udef.share.edit(stri:new, ind: indexPath?.row ?? 1)
                        self.tableView.reloadData()
                    }
                }
@@ -57,10 +58,24 @@ print(arr2)
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
-        cell.Label.text = arr2[indexPath.row]
+        let currentItem = arr2[indexPath.row]
+        cell.Label.text = currentItem["Name"] as? String
+        if(currentItem["IsCom"] as? Bool) == true{
+            cell.accessoryType = .checkmark
+        }
+        else{
+            cell.accessoryType = .none
+        }
+        
+       
         // Configure the cell...
 
         return cell
+    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        Udef.share.changeCheck(Item: indexPath.row)
+        
     }
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
