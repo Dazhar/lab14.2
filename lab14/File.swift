@@ -52,10 +52,13 @@ class Udef{
         SelTodo.name = stri
     }
     func delet(indo:Int){
+        print("ogo")
            let allTodo = realm.objects(toDo.self)
             try! realm.write{
-                realm.delete(allTodo[indo])
+                realm.delete(allTodo[indo-1])
            }
+        print("tt")
+        print(allTodo)
        
            }
     private let kUserName = "default.kUserName"
