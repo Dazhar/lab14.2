@@ -11,7 +11,10 @@ import UIKit
 class TableViewController: UITableViewController {
  //   let realm =  try! Realm()
     var arr2 = Udef.share.al()
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+      //  tableView.reloadData()
+    }
     @IBAction func but(_ sender: Any) {
         let alert = UIAlertController(title: "изменить", message: "Измените эту задачу", preferredStyle: .alert)
                let save = UIAlertAction(title: "Сохранить", style: .default) { action in
@@ -22,7 +25,7 @@ class TableViewController: UITableViewController {
                     let indexPath = self.tableView.indexPathForRow(at: buttonPosition)
 
                     Udef.share.edit(stri:new, ind: indexPath?.row ?? 1)
-                       self.tableView.reloadData()
+                       //self.tableView.reloadData()
                    }
                }
                alert.addTextField {_ in}
@@ -34,8 +37,11 @@ class TableViewController: UITableViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+
         print("arr2")
-print(arr2)
+
+        print(arr2)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 

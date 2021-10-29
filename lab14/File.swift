@@ -11,12 +11,13 @@ import RealmSwift
 
 class toDo: Object {
     @objc dynamic var name = ""
-    @objc dynamic var isCompl:Bool = false
+    @objc dynamic var isCompl:Bool = Bool()
 }
 
 class Udef{
     var nam = ""
    var arr:[[String:Any]] = [["Name":String(),"IsCom":Bool()]]
+       var arr2:[[String:Any]] = [["Name":String(),"IsCom":Bool()]]
     static let share = Udef()
     private let realm =  try! Realm()
     func test(){
@@ -33,8 +34,10 @@ class Udef{
         let allTodo = realm.objects(toDo.self)
                for i in allTodo{
                    print(i)
+                
                 arr.append(["Name":i.name,"IsCom":i.isCompl])
                }
+        arr.remove(at: 0)
     return arr
     }
     func changeCheck(Item:Int){
@@ -47,8 +50,11 @@ class Udef{
         
     }
     func edit(stri:String,ind:Int){
+        print("eee")
+        print(stri)
+        print(ind)
          let allTodo = realm.objects(toDo.self)
-        let SelTodo = allTodo[ind]
+        let SelTodo = allTodo[ind+1]
         SelTodo.name = stri
     }
     func delet(indo:Int){

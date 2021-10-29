@@ -15,6 +15,9 @@ class ViewController2: UIViewController {
     @IBAction func but(_ sender: Any) {
         Udef.share.nam = TF.text!
         Udef.share.test()
+        dismiss(animated: true, completion: nil)
+        
+        
     }
     override func viewDidLoad() {
         super.viewDidLoad()
