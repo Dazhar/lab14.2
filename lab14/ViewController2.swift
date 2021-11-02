@@ -21,7 +21,7 @@ class ViewController2: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-Udef.share.al()
+//Udef.share.al()
         // Do any additional setup after loading the view.
     }
     

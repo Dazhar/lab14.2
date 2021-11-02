@@ -37,9 +37,10 @@ class Udef{
                 
                 arr.append(["Name":i.name,"IsCom":i.isCompl])
                }
-        arr.remove(at: 0)
+      arr.remove(at: 0)
     return arr
     }
+    
     func changeCheck(Item:Int){
     //   arr[Item]["IsCom"] = !(arr[Item]["IsCom"] as! Bool)
         let allTodo2 = realm.objects(toDo.self)

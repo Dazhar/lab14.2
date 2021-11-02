@@ -39,6 +39,7 @@ class TableViewController2: UITableViewController {
         alert.addAction(save)
         alert.addAction(cancel)
         present(alert, animated: true)
+        
     }
     
     func sav(title:String){
