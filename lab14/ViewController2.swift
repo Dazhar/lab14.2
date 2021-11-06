@@ -14,7 +14,11 @@ class ViewController2: UIViewController {
     
     @IBAction func but(_ sender: Any) {
         Udef.share.nam = TF.text!
-        Udef.share.test()
+        var new = toDo()
+        new.name = TF.text!
+        new.isCompl = false
+        
+        Udef.share.add(ad: new)
         dismiss(animated: true, completion: nil)
         
         

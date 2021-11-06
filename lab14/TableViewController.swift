@@ -11,7 +11,14 @@ import UIKit
 class TableViewController: UITableViewController {
  //   let realm =  try! Realm()
     var arr2 = Udef.share.al()
+    var arr3 = Udef.share.item
     override func viewWillAppear(_ animated: Bool) {
+        
+        print("yyy")
+      //  print(arr2)
+        print(Udef.share.item)
+        print("ooo")
+        print(arr2)
         super.viewWillAppear(animated)
       //  tableView.reloadData()
     }
@@ -23,8 +30,11 @@ class TableViewController: UITableViewController {
                        //self.tasks.insert(new, at: 0)
                     let buttonPosition:CGPoint = (sender as AnyObject).convert(CGPoint.init(x: 5.0, y: 5.0), to:self.tableView)
                     let indexPath = self.tableView.indexPathForRow(at: buttonPosition)
+                    var curTask = self.arr3[indexPath?.row ?? 0]
+                    Udef.share.updateTask(editTask: curTask , newTask: new)
+                    self.tableView.reloadData()
 
-                    Udef.share.edit(stri:new, ind: indexPath?.row ?? 1)
+                   // Udef.share.edit(stri:new, ind: indexPath?.row ?? 1)
                        //self.tableView.reloadData()
                    }
                }
@@ -58,20 +68,21 @@ class TableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return arr2.count
+        return arr3.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
-        let currentItem = arr2[indexPath.row]
-        cell.Label.text = currentItem["Name"] as? String
-        if(currentItem["IsCom"] as? Bool) == true{
+        let currentItem = arr3[indexPath.row]
+        cell.Label.text = currentItem.name as? String
+        
+       /* if(currentItem["IsCom"] as? Bool) == true{
             cell.accessoryType = .checkmark
         }
         else{
             cell.accessoryType = .none
-        }
+        }*/
         
        
         // Configure the cell...

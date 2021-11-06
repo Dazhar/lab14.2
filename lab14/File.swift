@@ -15,32 +15,36 @@ class toDo: Object {
 }
 
 class Udef{
+   // var ty = toDo()
     var nam = ""
    var arr:[[String:Any]] = [["Name":String(),"IsCom":Bool()]]
        var arr2:[[String:Any]] = [["Name":String(),"IsCom":Bool()]]
     static let share = Udef()
     private let realm =  try! Realm()
-    func test(){
-        let tDo = toDo()
+    func add(ad:toDo){
+        let realm = try! Realm()
+
+               try! realm.write{
+
+                   realm.add(ad)
+
+               }
+       /* let tDo = toDo()
         tDo.name = nam
         tDo.isCompl = false
         try! realm.write{
             realm.add(tDo)
         }
-    
-    }
-    func al()->[[String:Any]]{
-        
-        let allTodo = realm.objects(toDo.self)
-               for i in allTodo{
-                   print(i)
-                
-                arr.append(["Name":i.name,"IsCom":i.isCompl])
-               }
-      arr.remove(at: 0)
-    return arr
+    */
     }
     
+    var item: Results<toDo> {
+
+           let realm = try! Realm()
+
+           return realm.objects(toDo.self)
+
+       }
     func changeCheck(Item:Int){
     //   arr[Item]["IsCom"] = !(arr[Item]["IsCom"] as! Bool)
         let allTodo2 = realm.objects(toDo.self)
@@ -50,19 +54,23 @@ class Udef{
    
         
     }
-    func edit(stri:String,ind:Int){
-        print("eee")
-        print(stri)
-        print(ind)
-         let allTodo = realm.objects(toDo.self)
-        let SelTodo = allTodo[ind+1]
-        SelTodo.name = stri
+    func updateTask(editTask : toDo, newTask: String ) {
+
+        try! realm.write {
+            editTask.name = newTask
+
+            //editTask.task = newTask
+
+        }
+
     }
+    
+  
     func delet(indo:Int){
         print("ogo")
            let allTodo = realm.objects(toDo.self)
             try! realm.write{
-                realm.delete(allTodo[indo-1])
+                realm.delete(allTodo[indo])
            }
         print("tt")
         print(allTodo)
