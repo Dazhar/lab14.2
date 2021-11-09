@@ -10,7 +10,7 @@ import UIKit
 
 class TableViewController: UITableViewController {
  //   let realm =  try! Realm()
-    var arr2 = Udef.share.al()
+ //   var arr2 = Udef.share.al()
     var arr3 = Udef.share.item
     override func viewWillAppear(_ animated: Bool) {
         
@@ -18,7 +18,7 @@ class TableViewController: UITableViewController {
       //  print(arr2)
         print(Udef.share.item)
         print("ooo")
-        print(arr2)
+      //  print(arr2)
         super.viewWillAppear(animated)
       //  tableView.reloadData()
     }
@@ -51,7 +51,7 @@ class TableViewController: UITableViewController {
 
         print("arr2")
 
-        print(arr2)
+    //    print(arr2)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -97,7 +97,7 @@ class TableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
             Udef.share.delet(indo: indexPath.row)
-            arr2.remove(at: indexPath.row)
+            arr3.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .top)
           
         }
