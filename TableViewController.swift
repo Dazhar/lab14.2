@@ -97,7 +97,8 @@ class TableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
             Udef.share.delet(indo: indexPath.row)
-            arr3.remove(at: indexPath.row)
+            arr3 = Udef.share.item
+          //  arr3.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .top)
           
         }
