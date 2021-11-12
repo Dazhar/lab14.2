@@ -8,13 +8,17 @@
 
 import Foundation
 import RealmSwift
-
+protocol loadDelegate{
+    func loaded(cat:Results<toDo>)
+    
+}
 class toDo: Object {
     @objc dynamic var name = ""
     @objc dynamic var isCompl:Bool = Bool()
 }
 
 class Udef{
+    var delegate:loadDelegate?
    // var ty = toDo()
     var nam = ""
    var arr:[[String:Any]] = [["Name":String(),"IsCom":Bool()]]
@@ -29,6 +33,9 @@ class Udef{
                    realm.add(ad)
 
                }
+        let ar = realm.objects(toDo.self)
+        self.delegate?.loaded(cat: ar)
+        
        /* let tDo = toDo()
         tDo.name = nam
         tDo.isCompl = false
@@ -45,11 +52,11 @@ class Udef{
            return realm.objects(toDo.self)
 
        }
-    func changeCheck(Item:Int){
+    func changeCheck(to:toDo){
     //   arr[Item]["IsCom"] = !(arr[Item]["IsCom"] as! Bool)
         let allTodo2 = realm.objects(toDo.self)
         print("morgen")
-        print(allTodo2[Item]["IsCom"])
+        print(to["IsCom"])
       // allTodo2[Item]["IsCom"] = !(allTodo2[Item]["IsCom"] as! Bool)
    
         
