@@ -18,7 +18,7 @@ class TableViewController: UITableViewController {
         print("yyy")
       //  print(arr2)
         print(Udef.share.item)
-        print("ooo")
+        //print("ooo")
       //  print(arr2)
         super.viewWillAppear(animated)
       //  tableView.reloadData()
@@ -48,9 +48,13 @@ class TableViewController: UITableViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+     
         let loader = Udef()
         loader.delegate = self
-        loader.
+        loaded(cat: Udef.share.item)
+        print("wow2")
+             print(arr3)
+        
         
         
 
@@ -164,6 +168,8 @@ class TableViewController: UITableViewController {
 extension TableViewController: loadDelegate{
     func loaded(cat:Results<toDo>){
         self.arr3 = cat
+        print("wow1")
+        print(arr3)
         tableView.reloadData()
     }
 }
