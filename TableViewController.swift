@@ -31,8 +31,8 @@ class TableViewController: UITableViewController {
                        //self.tasks.insert(new, at: 0)
                     let buttonPosition:CGPoint = (sender as AnyObject).convert(CGPoint.init(x: 5.0, y: 5.0), to:self.tableView)
                     let indexPath = self.tableView.indexPathForRow(at: buttonPosition)
-                    var curTask = self.arr3![indexPath?.row ?? 0]
-                    Udef.share.updateTask(editTask: curTask , newTask: new)
+                    var curTask = self.arr3?[indexPath?.row ?? 0]
+                    Udef.share.updateTask(editTask: curTask! , newTask: new)
                     self.tableView.reloadData()
 
                    // Udef.share.edit(stri:new, ind: indexPath?.row ?? 1)
@@ -50,6 +50,8 @@ class TableViewController: UITableViewController {
         super.viewDidLoad()
         let loader = Udef()
         loader.delegate = self
+        loader.
+        
         
 
         print("arr2")
@@ -71,14 +73,14 @@ class TableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return arr3!.count
+        return arr3?.count ?? 0
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
-        let currentItem = arr3![indexPath.row]
-        cell.Label.text = currentItem.name as? String
+        let currentItem = arr3?[indexPath.row]
+        cell.Label.text = currentItem?.name as? String
         
        /* if(currentItem["IsCom"] as? Bool) == true{
             cell.accessoryType = .checkmark
@@ -94,7 +96,7 @@ class TableViewController: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        Udef.share.changeCheck(to: arr3![indexPath.row])
+        Udef.share.changeCheck(to: (arr3?[indexPath.row])!)
         
     }
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {

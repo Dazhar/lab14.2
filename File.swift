@@ -49,7 +49,10 @@ class Udef{
 
            let realm = try! Realm()
 
-           return realm.objects(toDo.self)
+          
+        var it = realm.objects(toDo.self)
+        self.delegate?.loaded(cat: it)
+         return realm.objects(toDo.self)
 
        }
     func changeCheck(to:toDo){
