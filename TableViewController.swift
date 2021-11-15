@@ -11,8 +11,8 @@ import RealmSwift
 class TableViewController: UITableViewController {
  //   let realm =  try! Realm()
  //   var arr2 = Udef.share.al()
-    //var arr3 = Udef.share.item
-    var arr3:Results<toDo>?
+    var arr3 = Udef.share.item
+   // var arr3:Results<toDo>?
     override func viewWillAppear(_ animated: Bool) {
         
         print("yyy")
@@ -31,8 +31,8 @@ class TableViewController: UITableViewController {
                        //self.tasks.insert(new, at: 0)
                     let buttonPosition:CGPoint = (sender as AnyObject).convert(CGPoint.init(x: 5.0, y: 5.0), to:self.tableView)
                     let indexPath = self.tableView.indexPathForRow(at: buttonPosition)
-                    var curTask = self.arr3?[indexPath?.row ?? 0]
-                    Udef.share.updateTask(editTask: curTask! , newTask: new)
+                    var curTask = self.arr3[indexPath?.row ?? 0]
+                    Udef.share.updateTask(editTask: curTask , newTask: new)
                     self.tableView.reloadData()
 
                    // Udef.share.edit(stri:new, ind: indexPath?.row ?? 1)
@@ -77,14 +77,14 @@ class TableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return arr3?.count ?? 0
+        return arr3.count ?? 0
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
-        let currentItem = arr3?[indexPath.row]
-        cell.Label.text = currentItem?.name as? String
+        let currentItem = arr3[indexPath.row]
+        cell.Label.text = currentItem.name as? String
         
        /* if(currentItem["IsCom"] as? Bool) == true{
             cell.accessoryType = .checkmark
@@ -98,11 +98,12 @@ class TableViewController: UITableViewController {
 
         return cell
     }
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+/*    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        Udef.share.changeCheck(to: (arr3?[indexPath.row])!)
+        Udef.share.changeCheck(to: (arr3[indexPath.row]))
         
     }
+ */
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
             Udef.share.delet(indo: indexPath.row)
@@ -162,11 +163,18 @@ class TableViewController: UITableViewController {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
+     
    
 */
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? ViewController2, segue.identifier == "seg"{
+            vc.delegat = self
+        }
+    }
+
 }
 extension TableViewController: loadDelegate{
-    func loaded(cat:Results<toDo>){
+    func loaded(cat: Results<toDo>){
         self.arr3 = cat
         print("wow1")
         print(arr3)

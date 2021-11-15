@@ -9,9 +9,9 @@
 import UIKit
 
 class ViewController2: UIViewController {
-    
+    var delegat:loadDelegate?
     @IBOutlet var TF: UITextField!
-    
+  
     @IBAction func but(_ sender: Any) {
         Udef.share.nam = TF.text!
         var new = toDo()
@@ -19,6 +19,8 @@ class ViewController2: UIViewController {
         new.isCompl = false
         
         Udef.share.add(ad: new)
+        var arr4 = Udef.share.item
+        delegat?.loaded(cat: arr4 )
         dismiss(animated: true, completion: nil)
         
         
@@ -41,3 +43,4 @@ class ViewController2: UIViewController {
     */
 
 }
+
