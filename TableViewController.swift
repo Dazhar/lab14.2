@@ -10,7 +10,7 @@ import UIKit
 import RealmSwift
 class TableViewController: UITableViewController {
  //   let realm =  try! Realm()Т
- //   var arr2 = Udef.share.al()
+ //   var arr2 = Udef.share.al()d
     var arr3 = Udef.share.item
    // var arr3:Results<toDo>?
     override func viewWillAppear(_ animated: Bool) {
